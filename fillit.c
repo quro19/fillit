@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 17:41:27 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/04/25 20:14:02 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/04/25 20:28:59 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int		main(int argc, char **argv)
 	fd = open(argv[1], O_RDONLY);
 	if (!(head = record_tetra(fd, head)))
 	{
+		ft_putendl("error");
 		return (1);
 	}
 	if (!is_valid_list(head))

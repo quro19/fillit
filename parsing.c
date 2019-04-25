@@ -6,7 +6,7 @@
 /*   By: srobin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 18:59:45 by srobin            #+#    #+#             */
-/*   Updated: 2019/04/25 20:14:50 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/04/25 20:27:15 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_tetra	*record_tetra(int fd, t_tetra *head)
 		if (!check_format(buff) || !(head = add_node(head, buff)))
 			return (NULL);
 		i++;
+		memset(buff, 0, ret);
 	}
 	if (!i && !ret)
 	{
