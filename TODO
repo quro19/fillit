@@ -6,7 +6,7 @@
 #    By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/24 17:38:25 by qbackaer          #+#    #+#              #
-#    Updated: 2019/04/24 19:26:56 by qbackaer         ###   ########.fr        #
+#    Updated: 2019/04/25 18:32:15 by qbackaer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,8 +38,7 @@ I. PARSING
 	
 	> close (error check -> return -1);
 
-0  1  2  3  (4)
-5  6  7  8  (9)
-10 11 12 13 (14)
-15 16 17 18 (19)
-(20)
+	ATTENTION - Cas d'erreurs a gerer:
+		- Si fichier entierement vide;
+		- Si plus de 26 tetraminos;
+		 
