@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 17:41:27 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/04/25 18:24:09 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/04/25 20:14:02 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,21 +52,28 @@ int		check_format(char *str)
 	return (1);
 }
 
-int     main(int argc, char **argv)
+int		main(int argc, char **argv)
 {
-	int fd;
-	t_tetra *head;
+	int		fd;
+	t_tetra	*head;
 
 	head = NULL;
 	if (argc != 2)
 	{
 		ft_putendl("usage: ./fillit <input>");
 		return (1);
-
 	}
 	fd = open(argv[1], O_RDONLY);
-	head = record_tetra(fd, head);
-	read_list(head);
+	if (!(head = record_tetra(fd, head)))
+	{
+		return (1);
+	}
+	if (!is_valid_list(head))
+	{
+		ft_putendl("error: invalid tetraminos.");
+		return (1);
+	}
+	else
+		ft_putendl("everything's fine, parsing done.");
 	return (0);
-
 }

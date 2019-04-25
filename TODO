@@ -6,7 +6,7 @@
 #    By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/04/24 17:38:25 by qbackaer          #+#    #+#              #
-#    Updated: 2019/04/25 18:32:15 by qbackaer         ###   ########.fr        #
+#    Updated: 2019/04/25 19:53:48 by qbackaer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -34,11 +34,12 @@ I. PARSING
 		- on stock les coordonees des '#' dans la structure correspondante.
 	
 	> verification b:
-		- on verifiee la validite du tetra (tout les '#' doivent etre en contact avec au moins un autre).
+	on verifiee la validite du tetra (tout les '#' doivent etre en contact avec au moins un autre).
+		- chaque bloc dans le tetra doit matcher avec au moins 1 des trois autres selon les criteres suivants:
+		- le x du bloc teste doit etre egal au x du bloc compare, et le y doit etre +1 ou -1, ou inversement (x->y)
 	
 	> close (error check -> return -1);
 
 	ATTENTION - Cas d'erreurs a gerer:
 		- Si fichier entierement vide;
-		- Si plus de 26 tetraminos;
-		 
+		- Si plus de 26 tetraminos; 

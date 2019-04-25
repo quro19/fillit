@@ -6,13 +6,13 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 17:23:52 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/04/25 18:25:17 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/04/25 20:15:12 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_tetra		*add_node(t_tetra *head, char *buff)
+t_tetra	*add_node(t_tetra *head, char *buff)
 {
 	t_tetra *new_node;
 	t_tetra	*roam;
@@ -33,10 +33,10 @@ t_tetra		*add_node(t_tetra *head, char *buff)
 	return (head);
 }
 
-t_tetra     *coord(char *str, t_tetra *node)
+t_tetra	*coord(char *str, t_tetra *node)
 {
-	int             i;
-	int             j;
+	int	i;
+	int	j;
 
 	i = 0;
 	j = 0;
@@ -55,7 +55,7 @@ t_tetra     *coord(char *str, t_tetra *node)
 
 void	read_list(t_tetra *head)
 {
-	int i;
+	int		i;
 	t_tetra	*roam;
 
 	if (!head)

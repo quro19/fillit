@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 17:46:07 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/04/25 18:23:47 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/04/25 19:39:24 by qbackaer         ###   ########.fr       */
 /*   Updated: 2019/04/24 19:09:43 by srobin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -31,6 +31,9 @@ typedef struct		s_tetra
 int					check_char(char c, int p);
 int					check_format(char *str);
 t_tetra				*record_tetra(int fd, t_tetra *head);
+int					is_valid_list(t_tetra *head);
+int					is_valid_tetra(t_tetra *node);
+int					compare_coords(int ox, int oy, int cx, int cy);
 t_tetra				*add_node(t_tetra *head, char *buff);
 t_tetra				*coord(char *str, t_tetra *node);
 void				read_list(t_tetra *head);
