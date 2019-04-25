@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 17:41:27 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/04/24 19:46:09 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/04/25 17:32:45 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,4 +55,23 @@ int		check_format(char *str)
 	if (block_count != 4)
 		return (0);
 	return (1);
+}
+
+int     main(int argc, char **argv)
+{
+	int fd;
+	t_tetra *head;
+
+	if (argc != 2)
+	{
+		ft_putendl("usage: ./fillit <input>");
+		return (1);
+
+	}
+
+	fd = open(argv[1], O_RDONLY);
+	head = record_tetra(fd, head);
+
+	return (0);
+
 }

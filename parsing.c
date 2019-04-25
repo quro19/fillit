@@ -6,13 +6,13 @@
 /*   By: srobin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 18:59:45 by srobin            #+#    #+#             */
-/*   Updated: 2019/04/24 19:48:52 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/04/25 17:28:46 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		record_tetra(int fd)
+t_tetra		*record_tetra(int fd, t_tetra *head)
 {
 	int		ret;
 	char	buf[22];
@@ -24,24 +24,10 @@ int		record_tetra(int fd)
 		if (!check_format(buf))
 		{
 			ft_putendl("error, u fucked up");
-			return (0);
+			return (NULL);
 		}
+		// cree une nouvelle node
+		// remplit
 	}
-	return (1);
-}
-
-int		main(int argc, char **argv)
-{
-	int fd;
-
-	if (argc != 2)
-	{
-		ft_putendl("usage: ./fillit <input>");
-		return (1);
-	}	
-
-	fd = open(argv[1], O_RDONLY);
-	record_tetra(fd);
-
-	return (0);
+	return (head);
 }
