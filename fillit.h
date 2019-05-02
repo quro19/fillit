@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 17:46:07 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/04/25 19:39:24 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/02 19:11:52 by qbackaer         ###   ########.fr       */
 /*   Updated: 2019/04/24 19:09:43 by srobin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -37,5 +37,6 @@ int					compare_coords(int ox, int oy, int cx, int cy);
 t_tetra				*add_node(t_tetra *head, char *buff);
 t_tetra				*coord(char *str, t_tetra *node);
 void				read_list(t_tetra *head);
-
+int					count_blocks(t_tetra *head);
+int					smallest_square(int n_blocks);
 #endif

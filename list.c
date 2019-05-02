@@ -6,11 +6,28 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 17:23:52 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/04/25 20:15:12 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/02 19:03:36 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+
+int		count_blocks(t_tetra *head)
+{
+	t_tetra	*roam;
+	int		count;
+
+	if (!head)
+		return (0);
+	roam = head;
+	count = 0;
+	while (roam)
+	{
+		count++;
+		roam = roam->next;
+	}
+	return (count * 4);
+}
 
 t_tetra	*add_node(t_tetra *head, char *buff)
 {
