@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 17:23:52 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/02 20:58:42 by srobin           ###   ########.fr       */
+/*   Updated: 2019/05/02 21:04:36 by srobin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ t_tetra	*tetra_id(t_tetra *head)
 
 	if (!head)
 		return (NULL);
+	roam = head;
 	i = 0;
 	while (roam)
 	{
