@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 17:23:52 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/02 19:03:36 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/02 20:54:07 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ t_tetra	*add_node(t_tetra *head, char *buff)
 	t_tetra *new_node;
 	t_tetra	*roam;
 
-	if (!(new_node = malloc(sizeof(t_tetra))))
+if (!(new_node = malloc(sizeof(t_tetra))))
 		return (NULL);
 	new_node = coord(buff, new_node);
 	new_node->next = NULL;
