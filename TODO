@@ -3,56 +3,39 @@
 #                                                         :::      ::::::::    #
 #    TODO                                               :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: srobin <marvin@42.fr>                      +#+  +:+       +#+         #
+#    By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/05/02 18:29:00 by srobin            #+#    #+#              #
-#    Updated: 2019/05/02 19:07:28 by srobin           ###   ########.fr        #
+#    Created: 2019/04/24 17:38:25 by qbackaer          #+#    #+#              #
+#    Updated: 2019/04/24 18:18:58 by qbackaer         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-II. SOLVING
+I. PARSING
+{
+	1. reading input file.
+	2. check file format.
+	3. check tetras validity.
+	4. store tetras -> linked lists (struct).
+}
 
-1. SQUARE
+	[ int		parsing(char *filename) ]
 
-Calculer le nombre de blocs (tetra * 4) et trouver le plus petit carre possible qui pourrait accueuillir ces blocs.
+	> ouvrir le fichier (error check -> return -1);
 
-2. CALCUL
+	> on lit 21 caracteres (1 tetra + \n) a la fois (read()) et on le stocke;
 
-Essayer toutes les possibilites avec le plus petit carre possible. Si pas possible -> agrandir le carre et reessayer, etc jusqu a resolution.
+	> verification a:
+		- on verifie la string lue:
+		- elle ne doit contenir que des '.' et 4 '#'.
+		- elle doit contenir 5 '\n' (tout les 5 caracteres + 1 a la fin).
+	
+	> stockage:
+		- on initialise ou cree une nouvelle node dans la liste (structure).
+		- on stock les coordonees des '#' dans la structure correspondante.
+	
+	> verification b:
+		- on verifiee la validite du tetra (tout les '#' doivent etre en contact avec au moins un autre).
+	
+	> close (error check -> return -1);
 
-3. OPTI
-
-a) Pour chaque tetra, deplacer les blocs le plus en haut a gauche possible.
-b) Identifier les tetras en fonction de leur forme et leur orientation (angle).
-
-
-##..
-.#.. x4
-.#..
-....
-
-##..
-#... x4
-#...
-....
-
-##..
-##.. x1
-....
-....
-
-#... ####
-#... ....
-#... .... 
-#... ....
-
-.##. #... ##.. .#..
-##.. ##.. .##. ##..
-.... .#.. .... #...
-.... .... .... ....
-
-###. .#.. .#.. #...
-.#.. ##.. ###. ##..
-.... .#.. .... #...
-.... .... .... ....
 
