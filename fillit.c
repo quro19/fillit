@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 17:41:27 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/02 19:12:04 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/02 21:03:39 by srobin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ int		check_format(char *str)
 int		main(int argc, char **argv)
 {
 	int		fd;
-	int		blocks;
 	t_tetra	*head;
 
 	head = NULL;
@@ -75,9 +74,7 @@ int		main(int argc, char **argv)
 		ft_putendl("error: invalid tetraminos.");
 		return (1);
 	}
-	blocks = count_blocks(head);
-	printf("> %d tetras, %d blocks.\n", blocks / 4, blocks);
-	printf("smallest square is %d by %d.\n", smallest_square(blocks), smallest_square(blocks));
-
+	head = tetra_id(head);
+	read_list(head);
 	return (0);
 }

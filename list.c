@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 17:23:52 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/02 19:03:36 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/02 21:04:36 by srobin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,24 @@ t_tetra	*coord(char *str, t_tetra *node)
 	return (node);
 }
 
+t_tetra	*tetra_id(t_tetra *head)
+{
+	t_tetra	*roam;
+	int		i;
+
+	if (!head)
+		return (NULL);
+	roam = head;
+	i = 0;
+	while (roam)
+	{
+		roam->id = ('A' + i);
+		i++;
+		roam = roam->next;
+	}
+	return (head);
+}
+
 void	read_list(t_tetra *head)
 {
 	int		i;
@@ -84,6 +102,7 @@ void	read_list(t_tetra *head)
 		printf("===========\n\n");
 		while (i < 4)
 		{
+			printf(" - id: %c\n", roam->id);
 			printf(" - x(%d): %d\n", i, roam->x[i]);
 			printf(" - y(%d): %d\n\n", i, roam->y[i]);
 			i++;

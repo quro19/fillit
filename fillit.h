@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 17:46:07 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/02 20:20:57 by srobin           ###   ########.fr       */
+/*   Updated: 2019/05/02 21:02:38 by srobin           ###   ########.fr       */
 /*   Updated: 2019/04/24 19:09:43 by srobin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -25,6 +25,7 @@ typedef struct		s_tetra
 {
 	int				x[4];
 	int				y[4];
+	char			id;
 	struct s_tetra	*next;
 }					t_tetra;
 
@@ -40,4 +41,7 @@ void				read_list(t_tetra *head);
 int					count_blocks(t_tetra *head);
 int					smallest_square(int n_blocks);
 t_tetra				*tetra_placement(t_tetra *head);
+char				**init_square(int side_sz);
+void				print_square(char **sq);
+t_tetra				*tetra_id(t_tetra *head);
 #endif
