@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 17:46:07 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/02 21:02:38 by srobin           ###   ########.fr       */
+/*   Updated: 2019/05/03 17:05:01 by srobin           ###   ########.fr       */
 /*   Updated: 2019/04/24 19:09:43 by srobin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -44,4 +44,6 @@ t_tetra				*tetra_placement(t_tetra *head);
 char				**init_square(int side_sz);
 void				print_square(char **sq);
 t_tetra				*tetra_id(t_tetra *head);
+char				**tetra_into_square(t_tetra *head, char **square, int sq_size);
+
 #endif
