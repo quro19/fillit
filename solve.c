@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 19:03:52 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/02 20:54:45 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/03 17:10:27 by srobin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ char	**init_square(int side_sz)
 		j = 0;
 		while (j < side_sz)
 		{
-			empty_sq[i][j] = '0';
+			empty_sq[i][j] = '.';
 			j++;
 		}
 		empty_sq[i][j] = '\0';

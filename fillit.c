@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 17:41:27 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/02 21:03:39 by srobin           ###   ########.fr       */
+/*   Updated: 2019/05/03 18:52:28 by srobin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ int		main(int argc, char **argv)
 {
 	int		fd;
 	t_tetra	*head;
+	char	**square;
 
 	head = NULL;
 	if (argc != 2)
@@ -75,6 +76,9 @@ int		main(int argc, char **argv)
 		return (1);
 	}
 	head = tetra_id(head);
-	read_list(head);
+	head = tetra_placement(head);
+	square = init_square(15);
+	square = tetra_into_square(head, square, 15);
+	print_square(square);
 	return (0);
 }
