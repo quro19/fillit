@@ -6,7 +6,7 @@
 #    By: srobin <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/05/02 18:29:00 by srobin            #+#    #+#              #
-#    Updated: 2019/05/02 19:07:28 by srobin           ###   ########.fr        #
+#    Updated: 2019/05/03 15:31:54 by srobin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ II. SOLVING
 
 1. SQUARE
 
-Calculer le nombre de blocs (tetra * 4) et trouver le plus petit carre possible qui pourrait accueuillir ces blocs.
+#Calculer le nombre de blocs (tetra * 4) et trouver le plus petit carre possible qui pourrait accueuillir ces blocs.
 
 2. CALCUL
 
@@ -22,7 +22,7 @@ Essayer toutes les possibilites avec le plus petit carre possible. Si pas possib
 
 3. OPTI
 
-a) Pour chaque tetra, deplacer les blocs le plus en haut a gauche possible.
+#a) Pour chaque tetra, deplacer les blocs le plus en haut a gauche possible.
 b) Identifier les tetras en fonction de leur forme et leur orientation (angle).
 
 

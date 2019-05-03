@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 17:41:27 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/02 21:03:39 by srobin           ###   ########.fr       */
+/*   Updated: 2019/05/03 15:54:36 by srobin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ int		main(int argc, char **argv)
 		ft_putendl("error: invalid tetraminos.");
 		return (1);
 	}
+	head = tetra_placement(head);
 	head = tetra_id(head);
 	read_list(head);
 	return (0);
