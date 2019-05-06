@@ -6,7 +6,7 @@
 /*   By: srobin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 18:59:45 by srobin            #+#    #+#             */
-/*   Updated: 2019/04/25 20:27:15 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/06 17:27:02 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,14 @@ int		is_valid_tetra(t_tetra *node)
 
 	i = 0;
 	valid_tetra = 0;
+	valid_block = 0;
 	while (i < 4)
 	{
 		j = 0;
-		valid_block = 0;
 		while (j < 4)
 		{
 			if (compare_coords(node->x[i], node->y[i], node->x[j], node->y[j]))
-				valid_block = 1;
+				valid_block += 1;
 			j++;
 		}
 		if (!valid_block)
@@ -83,7 +83,7 @@ int		is_valid_tetra(t_tetra *node)
 		valid_tetra++;
 		i++;
 	}
-	if (valid_tetra != 4)
+	if (valid_tetra != 4 || valid_block < 6)
 		return (0);
 	return (1);
 }

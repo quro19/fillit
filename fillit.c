@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 17:41:27 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/06 16:48:52 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/06 18:14:17 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,10 +54,12 @@ int		check_format(char *str)
 
 int		main(int argc, char **argv)
 {
+	int		i;
 	int		fd;
 	t_tetra	*head;
 	char	**square;
 
+	square = NULL;
 	head = NULL;
 	if (argc != 2)
 	{
@@ -70,10 +72,16 @@ int		main(int argc, char **argv)
 		ft_putendl("error");
 		return (1);
 	}
-	head = tetra_placement(head);
-	head = tetra_id(head);
-	square = init_square(15);
-	square = tetra_into_square(head, square, 15);
-	print_square(square);
+	head = tetra_id(tetra_placement(head));
+	i = 0;
+	while (!square)
+	{
+		printf("TRY : %d\n", i + 1);
+		square = init_square(smallest_sq(head) + i);
+		if (!(square = tetra_into_square(head, square, smallest_sq(head) + i)))
+			i++;
+		else
+			print_square(square);
+	}
 	return (0);
 }

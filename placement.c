@@ -6,13 +6,11 @@
 /*   By: srobin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 16:57:49 by srobin            #+#    #+#             */
-/*   Updated: 2019/05/06 17:06:51 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/06 18:09:02 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-
-void	find_slot(char **sq, t_tetra *roam, t_offset *ofst, int sz);
 
 char	**tetra_into_square(t_tetra *head, char **square, int sq_size)
 {
@@ -28,7 +26,8 @@ char	**tetra_into_square(t_tetra *head, char **square, int sq_size)
 		ofst.ay = 0;
 		ofst.ax = 0;
 		j = 0;
-		find_slot(square, roam, &ofst, sq_size);
+		if (!find_slot(square, roam, &ofst, sq_size))
+			return (NULL);
 		while (j < 4)
 		{
 			square[roam->y[j] + ofst.ay][roam->x[j] + ofst.ax] = roam->id;
@@ -39,7 +38,7 @@ char	**tetra_into_square(t_tetra *head, char **square, int sq_size)
 	return (square);
 }
 
-void	find_slot(char **sq, t_tetra *roam, t_offset *ofst, int sz)
+int		find_slot(char **sq, t_tetra *roam, t_offset *ofst, int sz)
 {
 	int		i;
 
@@ -61,4 +60,7 @@ void	find_slot(char **sq, t_tetra *roam, t_offset *ofst, int sz)
 			i = 0;
 		}
 	}
+	if (i < 4)
+		return (0);
+	return (1);
 }

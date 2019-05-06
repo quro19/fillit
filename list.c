@@ -6,16 +6,17 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 17:23:52 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/02 21:04:36 by srobin           ###   ########.fr       */
+/*   Updated: 2019/05/06 18:00:34 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		count_blocks(t_tetra *head)
+int		smallest_sq(t_tetra *head)
 {
 	t_tetra	*roam;
 	int		count;
+	int		edge_sz;
 
 	if (!head)
 		return (0);
@@ -26,7 +27,10 @@ int		count_blocks(t_tetra *head)
 		count++;
 		roam = roam->next;
 	}
-	return (count * 4);
+	edge_sz = 2;
+	while (edge_sz *edge_sz < (count *4))
+		edge_sz++;
+	return (edge_sz);
 }
 
 t_tetra	*add_node(t_tetra *head, char *buff)
