@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 17:41:27 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/06 18:19:35 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/06 19:58:23 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,10 +52,36 @@ int		check_format(char *str)
 	return (1);
 }
 
+t_tetra	*get_tetras(char *path, t_tetra *head)
+{
+	int fd;
+
+	fd = open(path, O_RDONLY);
+	if (!(head = record_tetra(fd, head)) || !is_valid_list(head))
+		return (NULL);
+	if (!(head = tetra_id(tetra_placement(head))))
+		return (NULL);
+	return (head);
+}
+
+void	solve(t_tetra *head)
+{
+	int i;
+	char	**square;
+
+	square = NULL;
+	i = 0;
+	while (!square)
+	{
+		square = init_square(smallest_sq(head) + i);
+		if (!(square = tetra_into_square(head, square, smallest_sq(head) + i)))
+			i++;
+	}
+	print_square(square);
+}
+
 int		main(int argc, char **argv)
 {
-	int		i;
-	int		fd;
 	t_tetra	*head;
 	char	**square;
 
@@ -66,21 +92,11 @@ int		main(int argc, char **argv)
 		ft_putendl("usage: ./fillit <input>");
 		return (1);
 	}
-	fd = open(argv[1], O_RDONLY);
-	if (!(head = record_tetra(fd, head)) || !is_valid_list(head))
+	if (!(head = get_tetras(argv[1], head)))
 	{
-		ft_putendl("error");
-		return (1);
+		ft_putendl("ERROR.");
+		return (0);
 	}
-	head = tetra_id(tetra_placement(head));
-	i = 0;
-	while (!square)
-	{
-		square = init_square(smallest_sq(head) + i);
-		if (!(square = tetra_into_square(head, square, smallest_sq(head) + i)))
-			i++;
-		else
-			print_square(square);
-	}
+	solve(head);
 	return (0);
 }

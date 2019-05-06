@@ -6,7 +6,7 @@
 /*   By: srobin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 16:57:49 by srobin            #+#    #+#             */
-/*   Updated: 2019/05/06 18:09:02 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/06 19:59:50 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,15 +16,18 @@ char	**tetra_into_square(t_tetra *head, char **square, int sq_size)
 {
 	t_tetra		*roam;
 	int			j;
+	int			i;
 	t_offset	ofst;
 
 	if (!head)
 		return (NULL);
 	roam = head;
+	i = 0;
 	while (roam)
 	{
-		ofst.ay = 0;
+		printf("LOOP %d\n", i);
 		ofst.ax = 0;
+		ofst.ay = 0;
 		j = 0;
 		if (!find_slot(square, roam, &ofst, sq_size))
 			return (NULL);
@@ -34,6 +37,7 @@ char	**tetra_into_square(t_tetra *head, char **square, int sq_size)
 			j++;
 		}
 		roam = roam->next;
+		i++;
 	}
 	return (square);
 }
@@ -46,10 +50,11 @@ int		find_slot(char **sq, t_tetra *roam, t_offset *ofst, int sz)
 	while (i < 4 && ofst->ay < sz - 1)
 	{
 		if (sq[roam->y[i] + ofst->ay][roam->x[i] + ofst->ax] == '.')
-			i += 1;
+			i++;
 		else if (sq[roam->y[i] + ofst->ay][roam->x[i] + ofst->ax] >= 'A' &&
 				sq[roam->y[i] + ofst->ay][roam->x[i] + ofst->ax] <= 'Z')
 		{
+			printf("ay: %d, ax: %d\n", ofst->ay, ofst->ax);
 			ofst->ax += 1;
 			i = 0;
 		}

@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 17:23:52 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/06 18:00:34 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/06 19:14:49 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		smallest_sq(t_tetra *head)
 		roam = roam->next;
 	}
 	edge_sz = 2;
-	while (edge_sz *edge_sz < (count *4))
+	while	(edge_sz *edge_sz < (count * 4))
 		edge_sz++;
 	return (edge_sz);
 }

@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 19:03:52 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/06 18:19:59 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/06 19:56:07 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,3 +49,22 @@ void	print_square(char **sq)
 		roam++;
 	}
 }
+/*
+void	print_tetra(t_tetra *node)
+{
+	int x;
+	int y;
+
+	y = 0;
+	while (i < 3)
+	{
+		x = 0;
+		while (x < 3)
+		{
+			if 
+
+			x++;
+		}
+		y++;
+	}
+}*/
