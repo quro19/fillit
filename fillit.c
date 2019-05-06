@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 17:41:27 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/06 18:14:17 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/06 18:19:35 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,7 +76,6 @@ int		main(int argc, char **argv)
 	i = 0;
 	while (!square)
 	{
-		printf("TRY : %d\n", i + 1);
 		square = init_square(smallest_sq(head) + i);
 		if (!(square = tetra_into_square(head, square, smallest_sq(head) + i)))
 			i++;
