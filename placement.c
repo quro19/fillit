@@ -6,62 +6,59 @@
 /*   By: srobin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 16:57:49 by srobin            #+#    #+#             */
-/*   Updated: 2019/05/03 19:23:54 by srobin           ###   ########.fr       */
+/*   Updated: 2019/05/06 17:06:51 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
+void	find_slot(char **sq, t_tetra *roam, t_offset *ofst, int sz);
+
 char	**tetra_into_square(t_tetra *head, char **square, int sq_size)
 {
-	t_tetra	*roam;
-	int		i;
-	int		j;
-	int		ax;
-	int		ay;
+	t_tetra		*roam;
+	int			j;
+	t_offset	ofst;
 
-	ay = 0;
 	if (!head)
 		return (NULL);
 	roam = head;
 	while (roam)
 	{
-		ax = 0;
-		i = 0;
-		while (i < 4 && ay < sq_size - 1)
-		{	
-			if (square[roam->y[i] + ay][roam->x[i] + ax] == '.')
-				i++;
-			else if (square[roam->y[i] + ay][roam->x[i] + ax] >= 'A' && 
-				square[roam->y[i] + ay][roam->x[i] + ax] <= 'Z')
-			{
-				ax++;
-				i = 0;
-			}
-/*			else
-			{
-				i = 0;
-				ax++;
-			}
-*/			else if (square[roam->y[i] + ay][roam->x[i] + ax] == '\0')
-			{
-				ay++;
-				ax = 0;
-				i = 0;
-			}
-/*			if (square[ay][sq_size - 1] != '.')
-			{
-				ay++;
-				ax = 0;
-			}
-*/		}
+		ofst.ay = 0;
+		ofst.ax = 0;
 		j = 0;
+		find_slot(square, roam, &ofst, sq_size);
 		while (j < 4)
 		{
-			square[roam->y[j] + ay][roam->x[j] + ax] = roam->id;
+			square[roam->y[j] + ofst.ay][roam->x[j] + ofst.ax] = roam->id;
 			j++;
 		}
 		roam = roam->next;
 	}
 	return (square);
+}
+
+void	find_slot(char **sq, t_tetra *roam, t_offset *ofst, int sz)
+{
+	int		i;
+
+	i = 0;
+	while (i < 4 && ofst->ay < sz - 1)
+	{
+		if (sq[roam->y[i] + ofst->ay][roam->x[i] + ofst->ax] == '.')
+			i += 1;
+		else if (sq[roam->y[i] + ofst->ay][roam->x[i] + ofst->ax] >= 'A' &&
+				sq[roam->y[i] + ofst->ay][roam->x[i] + ofst->ax] <= 'Z')
+		{
+			ofst->ax += 1;
+			i = 0;
+		}
+		else if (sq[roam->y[i] + ofst->ay][roam->x[i] + ofst->ax] == '\0')
+		{
+			ofst->ay += 1;
+			ofst->ax = 0;
+			i = 0;
+		}
+	}
 }

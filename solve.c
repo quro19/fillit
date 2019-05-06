@@ -6,15 +6,15 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 19:03:52 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/03 17:10:27 by srobin           ###   ########.fr       */
+/*   Updated: 2019/05/06 16:53:18 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int		smallest_square(int	n_blocks)
+int		smallest_square(int n_blocks)
 {
-	int		side_sz;
+	int	side_sz;
 
 	side_sz = 0;
 	while ((side_sz * side_sz) < n_blocks)
@@ -51,7 +51,7 @@ char	**init_square(int side_sz)
 void	print_square(char **sq)
 {
 	char **roam;
-	
+
 	roam = sq;
 	while (*roam)
 	{

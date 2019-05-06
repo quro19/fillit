@@ -6,11 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 17:41:27 by qbackaer          #+#    #+#             */
-<<<<<<< HEAD
-/*   Updated: 2019/05/03 15:54:36 by srobin           ###   ########.fr       */
-=======
-/*   Updated: 2019/05/03 18:52:28 by srobin           ###   ########.fr       */
->>>>>>> srobin
+/*   Updated: 2019/05/06 16:48:52 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,19 +65,13 @@ int		main(int argc, char **argv)
 		return (1);
 	}
 	fd = open(argv[1], O_RDONLY);
-	if (!(head = record_tetra(fd, head)))
+	if (!(head = record_tetra(fd, head)) || !is_valid_list(head))
 	{
 		ft_putendl("error");
 		return (1);
 	}
-	if (!is_valid_list(head))
-	{
-		ft_putendl("error: invalid tetraminos.");
-		return (1);
-	}
 	head = tetra_placement(head);
 	head = tetra_id(head);
-	head = tetra_placement(head);
 	square = init_square(15);
 	square = tetra_into_square(head, square, 15);
 	print_square(square);
