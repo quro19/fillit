@@ -5,54 +5,20 @@
 #                                                     +:+ +:+         +:+      #
 #    By: srobin <marvin@42.fr>                      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2019/05/02 18:29:00 by srobin            #+#    #+#              #
-#    Updated: 2019/05/03 15:31:54 by srobin           ###   ########.fr        #
+#    Created: 2019/05/07 16:52:47 by srobin            #+#    #+#              #
+#    Updated: 2019/05/07 17:54:34 by srobin           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-II. SOLVING
+I. BACKTRACKING
 
-1. SQUARE
+Fonction de placement -> int	backtracking(t_tetra *tetra, char **square, int sq_size);
 
-#Calculer le nombre de blocs (tetra * 4) et trouver le plus petit carre possible qui pourrait accueuillir ces blocs.
+> Elle essaye de placer le tetra au premier emplacement disponible.
+>> SI elle y arrive, elle se rappelle elle meme (sur tetra->next);
+>> SI elle N'y arrive PAS, elle retourne 0 et recommence sur le tetra precedent en le deplacant de x + 1 ou y + 1
+si necessaire. Et recommence avec tetra->next.
 
-2. CALCUL
+>
 
-Essayer toutes les possibilites avec le plus petit carre possible. Si pas possible -> agrandir le carre et reessayer, etc jusqu a resolution.
-
-3. OPTI
-
-#a) Pour chaque tetra, deplacer les blocs le plus en haut a gauche possible.
-b) Identifier les tetras en fonction de leur forme et leur orientation (angle).
-
-
-##..
-.#.. x4
-.#..
-....
-
-##..
-#... x4
-#...
-....
-
-##..
-##.. x1
-....
-....
-
-#... ####
-#... ....
-#... .... 
-#... ....
-
-.##. #... ##.. .#..
-##.. ##.. .##. ##..
-.... .#.. .... #...
-.... .... .... ....
-
-###. .#.. .#.. #...
-.#.. ##.. ###. ##..
-.... .#.. .... #...
-.... .... .... ....
-
+Si il faut deplacer un tetra, "nettoyer" son ancien emplacement, c-a-d remplacer les lettres par des points. 

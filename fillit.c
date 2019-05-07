@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 17:41:27 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/06 19:58:23 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/07 18:27:09 by srobin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,11 +71,14 @@ void	solve(t_tetra *head)
 
 	square = NULL;
 	i = 0;
-	while (!square)
+	while (1)
 	{
+		printf("LOOP %d\n", i);
 		square = init_square(smallest_sq(head) + i);
-		if (!(square = tetra_into_square(head, square, smallest_sq(head) + i)))
+		if (!(tetra_into_square(head, square, smallest_sq(head) + i)))
 			i++;
+		else
+			break ;
 	}
 	print_square(square);
 }
