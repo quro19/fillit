@@ -6,7 +6,7 @@
 /*   By: srobin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 18:59:45 by srobin            #+#    #+#             */
-/*   Updated: 2019/05/09 18:45:51 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/09 20:46:53 by srobin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,22 @@ t_tetra	*record_tetra(int fd, t_tetra *head)
 		ft_putendl("error: empty file.");
 		return (NULL);
 	}
+	if (!is_valid_end(head))
+		return (NULL);
 	return (head);
 }
 
+int		is_valid_end(t_tetra *head)
+{
+	t_tetra *roam;
+
+	roam = head;
+	while (roam->next)
+		roam = roam->next;
+	if (roam->check != '\n')
+		return (1);
+	return (0);
+}
 int		is_valid_list(t_tetra *head)
 {
 	t_tetra	*roam;

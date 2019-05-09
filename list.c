@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/25 17:23:52 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/09 18:46:19 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/09 20:44:15 by srobin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ t_tetra	*coord(char *str, t_tetra *node)
 		}
 		i++;
 	}
+	node->check = str[ft_strlen(str) - 2];
 	return (node);
 }
 

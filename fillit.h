@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 17:46:07 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/09 18:42:09 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/09 20:46:32 by srobin           ###   ########.fr       */
 /*   Updated: 2019/04/24 19:09:43 by srobin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -36,6 +36,7 @@ typedef struct		s_tetra
 	int				x[4];
 	int				y[4];
 	char			id;
+	char			check;
 	struct s_tetra	*next;
 }					t_tetra;
 
@@ -45,6 +46,7 @@ typedef struct		s_offset
 	int				ay;
 }					t_offset;
 
+int					is_valid_end(t_tetra *head);
 int					check_char(char c, int p);
 int					check_format(char *str);
 t_tetra				*record_tetra(int fd, t_tetra *head);

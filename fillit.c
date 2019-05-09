@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 17:41:27 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/09 18:46:36 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/09 20:49:20 by srobin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int		check_format(char *str)
 	int i;
 	int block_count;
 
-	if (ft_strlen(str) != 21)
+	if (ft_strlen(str) != 21 && ft_strlen(str) != 20)
 		return (0);
 	i = 0;
 	block_count = 0;
