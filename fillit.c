@@ -86,9 +86,7 @@ void	solve(t_tetra *head)
 int		main(int argc, char **argv)
 {
 	t_tetra	*head;
-	char	**square;
 
-	square = NULL;
 	head = NULL;
 	if (argc != 2)
 	{

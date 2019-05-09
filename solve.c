@@ -38,6 +38,38 @@ char	**init_square(int side_sz)
 	return (empty_sq);
 }
 
+void	print_line(char *str)
+{
+	int	i;
+	char	buff[2];
+
+	buff[0] = '.';
+	buff[1] = '\0';
+	i = 0;
+	while (str[i])
+	{
+		buff[0] = str[i];
+		if (str[i] == '.')
+			printf(WHT);
+		else if (str[i] % 6 == 0)
+			printf(RED);
+		else if (str[i] % 6 == 1)
+			printf(GRN);
+		else if (str[i] % 6 == 2)
+			printf(YEL);
+		else if (str[i] % 6 == 3)
+			printf(MAG);
+		else if (str[i] % 6 == 4)
+			printf(CYN);
+		else if (str[i] % 6 == 5)
+			printf(CYN);
+		printf("%s", buff);
+		printf(RST);
+		i++;
+	}
+	printf("\n");
+}
+
 void	print_square(char **sq)
 {
 	char **roam;
@@ -45,26 +77,7 @@ void	print_square(char **sq)
 	roam = sq;
 	while (*roam)
 	{
-		printf("%s\n", *roam);
+		print_line(*roam);
 		roam++;
 	}
 }
-/*
-void	print_tetra(t_tetra *node)
-{
-	int x;
-	int y;
-
-	y = 0;
-	while (i < 3)
-	{
-		x = 0;
-		while (x < 3)
-		{
-			if 
-
-			x++;
-		}
-		y++;
-	}
-}*/
