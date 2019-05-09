@@ -6,7 +6,7 @@
 /*   By: srobin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/03 16:57:49 by srobin            #+#    #+#             */
-/*   Updated: 2019/05/07 18:35:45 by srobin           ###   ########.fr       */
+/*   Updated: 2019/05/09 18:44:30 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,12 +24,24 @@ void	clear_old_coord(t_tetra *tetra, char **square, t_offset *ofst)
 	}
 }
 
+void	place_tetra(char **square, t_tetra *node, t_offset ofst)
+{
+	int j;
+
+	j = 0;
+	while (j < 4)
+	{
+		square[node->y[j] + ofst.ay][node->x[j] + ofst.ax] = node->id;
+		j++;
+	}
+}
+
 int		tetra_into_square(t_tetra *head, char **square, int sq_size)
 {
 	t_tetra		*roam;
 	int			j;
 	t_offset	ofst;
-	
+
 	if (!head)
 		return (-1);
 	roam = head;
@@ -40,11 +52,7 @@ int		tetra_into_square(t_tetra *head, char **square, int sq_size)
 		j = 0;
 		if (!find_slot(square, roam, &ofst, sq_size))
 			return (0);
-		while (j < 4)
-		{
-			square[roam->y[j] + ofst.ay][roam->x[j] + ofst.ax] = roam->id;
-			j++;
-		}
+		place_tetra(square, roam, ofst);
 		if (!tetra_into_square(roam->next, square, sq_size))
 		{
 			clear_old_coord(head, square, &ofst);
@@ -77,7 +85,6 @@ int		find_slot(char **sq, t_tetra *roam, t_offset *ofst, int sz)
 			ofst->ax = 0;
 			i = 0;
 		}
-//		printf("\t\t MON AX = %d\n\t\tMON AY = %d\n", ofst->ax, ofst->ay);
 	}
 	if (i < 4)
 		return (0);

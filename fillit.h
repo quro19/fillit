@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 17:46:07 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/07 17:34:49 by srobin           ###   ########.fr       */
+/*   Updated: 2019/05/09 18:42:09 by qbackaer         ###   ########.fr       */
 /*   Updated: 2019/04/24 19:09:43 by srobin           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
@@ -62,5 +62,8 @@ void				print_square(char **sq);
 t_tetra				*tetra_id(t_tetra *head);
 int					tetra_into_square(t_tetra *head, char **square, int sq_size);
 int					find_slot(char **sq, t_tetra *roam, t_offset *ofst, int sz);
+void				free_list(t_tetra *head);
+void				free_square(char **sq);
+void				place_tetra(char **square, t_tetra *node, t_offset ofst);
 
 #endif

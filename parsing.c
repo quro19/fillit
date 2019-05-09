@@ -6,7 +6,7 @@
 /*   By: srobin <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/04/24 18:59:45 by srobin            #+#    #+#             */
-/*   Updated: 2019/05/07 18:31:02 by srobin           ###   ########.fr       */
+/*   Updated: 2019/05/09 18:45:51 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ t_tetra	*record_tetra(int fd, t_tetra *head)
 	i = 0;
 	while ((ret = read(fd, buff, 21)))
 	{
-		/*if (i >= 26)
+		if (i >= 26)
 		{
 			ft_putendl("error: too many tetraminos.");
 			return (NULL);
-		}*/
+		}
 		buff[ret] = '\0';
 		if (!check_format(buff) || !(head = add_node(head, buff)))
 			return (NULL);

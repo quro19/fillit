@@ -6,7 +6,7 @@
 /*   By: qbackaer <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/05/02 19:03:52 by qbackaer          #+#    #+#             */
-/*   Updated: 2019/05/06 19:56:07 by qbackaer         ###   ########.fr       */
+/*   Updated: 2019/05/09 18:48:05 by qbackaer         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char	**init_square(int side_sz)
 	int		i;
 	int		j;
 
-	if (!(empty_sq = malloc(sizeof(empty_sq) * side_sz + 1)))
+	if (!(empty_sq = malloc(sizeof(empty_sq) * (side_sz + 1))))
 		return (NULL);
 	i = 0;
 	while (i < side_sz)
@@ -34,40 +34,8 @@ char	**init_square(int side_sz)
 		empty_sq[i][j] = '\0';
 		i++;
 	}
-	empty_sq[side_sz] = NULL;
+	empty_sq[i] = NULL;
 	return (empty_sq);
-}
-
-void	print_line(char *str)
-{
-	int	i;
-	char	buff[2];
-
-	buff[0] = '.';
-	buff[1] = '\0';
-	i = 0;
-	while (str[i])
-	{
-		buff[0] = str[i];
-		if (str[i] == '.')
-			printf(WHT);
-		else if (str[i] % 6 == 0)
-			printf(RED);
-		else if (str[i] % 6 == 1)
-			printf(GRN);
-		else if (str[i] % 6 == 2)
-			printf(YEL);
-		else if (str[i] % 6 == 3)
-			printf(MAG);
-		else if (str[i] % 6 == 4)
-			printf(CYN);
-		else if (str[i] % 6 == 5)
-			printf(CYN);
-		printf("%s", buff);
-		printf(RST);
-		i++;
-	}
-	printf("\n");
 }
 
 void	print_square(char **sq)
@@ -77,7 +45,23 @@ void	print_square(char **sq)
 	roam = sq;
 	while (*roam)
 	{
-		print_line(*roam);
+		ft_putendl(*roam);
 		roam++;
 	}
+}
+
+void	free_square(char **sq)
+{
+	char **tmp;
+
+	if (!sq)
+		return ;
+	tmp = sq;
+	while (*tmp && **tmp)
+	{
+		ft_memset(*tmp, 0, ft_strlen(*tmp));
+		free(*tmp);
+		tmp++;
+	}
+	free(sq);
 }
